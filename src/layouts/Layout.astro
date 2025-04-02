@@ -1,0 +1,158 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { 
+	title = "Claudia Vivas - Economist", 
+	description = "Claudia Vivas - Economist specializing in Health Economics, Spatial Analysis, and Data Science" 
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+		<title>{title}</title>
+	</head>
+	<body class="font-sans min-h-screen bg-white text-gray-800">
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--primary-purple: #8b5cf6;
+		--primary-indigo: #6366f1;
+		--primary-pink: #ec4899;
+		--accent-violet: #7c3aed;
+		--accent-indigo: #4f46e5;
+		--accent-pink: #db2777;
+	}
+	
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+		font-family: 'Poppins', sans-serif;
+		scroll-behavior: smooth;
+	}
+	
+	h1, h2, h3, h4, h5, h6 {
+		font-weight: 600;
+	}
+
+	.font-serif {
+		font-family: 'Lora', serif;
+	}
+
+	.section-heading {
+		position: relative;
+		display: inline-block;
+	}
+
+	.section-heading::after {
+		content: "";
+		position: absolute;
+		bottom: -8px;
+		left: 0;
+		width: 60px;
+		height: 4px;
+		background-color: var(--accent-color);
+		border-radius: 2px;
+	}
+
+	.gradient-bg {
+		background: linear-gradient(120deg, #8b5cf6, #4f46e5);
+	}
+
+	.highlight-card {
+		transition: all 0.3s ease;
+	}
+
+	.highlight-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+	}
+
+	.accent-border-left {
+		border-left: 4px solid var(--accent-color);
+	}
+
+	@keyframes gradient-shift {
+		0% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+		100% {
+			background-position: 0% 50%;
+		}
+	}
+	
+	.gradient-text {
+		background: linear-gradient(90deg, var(--primary-purple), var(--primary-indigo), var(--primary-pink));
+		background-size: 200% auto;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		animation: gradient-shift 3s ease infinite;
+	}
+	
+	/* Subtle hover effects for buttons */
+	button, .button {
+		transition: all 0.2s ease;
+	}
+	
+	button:hover, .button:hover {
+		transform: translateY(-2px);
+	}
+	
+	/* Floating animation for decorative elements */
+	@keyframes float {
+		0% {
+			transform: translateY(0px);
+		}
+		50% {
+			transform: translateY(-10px);
+		}
+		100% {
+			transform: translateY(0px);
+		}
+	}
+	
+	.float-animation {
+		animation: float 6s ease-in-out infinite;
+	}
+	
+	/* Pulsing animation */
+	@keyframes pulse {
+		0% {
+			transform: scale(1);
+			opacity: 1;
+		}
+		50% {
+			transform: scale(1.05);
+			opacity: 0.8;
+		}
+		100% {
+			transform: scale(1);
+			opacity: 1;
+		}
+	}
+	
+	.pulse-animation {
+		animation: pulse 4s ease-in-out infinite;
+	}
+</style> 
